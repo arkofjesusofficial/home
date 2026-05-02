@@ -7,6 +7,12 @@
   box-sizing:border-box;
   font-family:'Open Sans',sans-serif;
 }
+/* 🔥 FIX NAVBAR OVERLAP */
+nav{
+  position: sticky;   /* or fixed if you want always visible */
+  top: 0;
+  z-index: 1000;      /* higher than everything */
+}
 
 html, body{
   height:100%;
