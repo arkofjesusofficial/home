@@ -9,7 +9,7 @@
 }
 /* 🔥 FIX NAVBAR OVERLAP */
 nav{
-  position: sticky;   /* or fixmed if you want always visible */
+  position: sticky;   /* or fixmed if you want alwanys visible */
   top: 0;
   z-index: 1000;      /* higher than everything */
 }
