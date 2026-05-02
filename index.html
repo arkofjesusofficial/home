@@ -26,7 +26,55 @@ nav{
   background:#020617;
   box-sizing:border-box;
 }
+/* MOBILE RESPONSIVE FIX FOR ABOUT SECTION */
+@media (max-width: 768px){
 
+  .about-usd{
+    padding: 10px;
+  }
+
+  .aboutd{
+    display: flex;
+    flex-direction: column; /* stack */
+    align-items: center;
+    text-align: center;
+  }
+
+  .aboutd .pic{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+  }
+
+  .aboutd .text{
+    width: 100%;
+  }
+
+  .aboutd .text h3{
+    font-size: 20px;
+  }
+
+  .aboutd .text h5{
+    font-size: 16px;
+  }
+
+  .aboutd .text p{
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .aboutd .data{
+    margin-top: 10px;
+  }
+
+  .aboutd .hire{
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
 /* prevent shrinking */
 nav, nav *{
   flex-shrink:0;
