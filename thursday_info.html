@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Thursday Meet - Ark Of JESUS</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Open Sans',sans-serif;
+}
+
+body{
+  background:#0f172a;
+  color:white;
+}
+
+.player-page{
+  padding:30px 20px;
+}
+
+.back-btn{
+  display:inline-block;
+  margin-bottom:25px;
+  padding:10px 16px;
+  border:none;
+  border-radius:8px;
+  background:linear-gradient(90deg,#2563eb,#06b6d4);
+  color:white;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:500;
+}
+
+.back-btn:hover{
+  opacity:0.9;
+}
+
+.video-container{
+  max-width:900px;
+  margin:auto;
+}
+
+h1{
+  text-align:center;
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.sub{
+  text-align:center;
+  font-size:16px;
+  color:#94a3b8;
+  margin-bottom:20px;
+}
+
+.video-title{
+  margin-top:18px;
+  font-size:18px;
+  color:#e2e8f0;
+}
+
+.quote{
+  text-align:center;
+  font-weight:600;
+  font-size:18px;
+  margin:25px 0;
+}
+
+p{
+  text-align:left;
+  line-height:1.8;
+  margin:15px 0;
+  color:#e2e8f0;
+}
+
+.highlight{
+  color:#38bdf8;
+  font-weight:600;
+}
+
+.box{
+  background:#111827;
+  padding:20px;
+  border-radius:12px;
+  margin-top:20px;
+}
+
+@media(max-width:768px){
+  h1{
+    font-size:26px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="player-page">
+
+  <button class="back-btn" onclick="goBack()">
+    <i class="fas fa-arrow-left"></i> Back
+  </button>
+
+  <div class="video-container">
+
+    <h1>Thursday Prayer Meet</h1>
+    <p class="sub">Ark Of JESUS Ministry</p>
+
+    <p class="quote">“PRAISE THE LORD 🙏”</p>
+
+    <div class="box">
+      <p>
+        The <strong>Thursday Prayer Meet</strong> is a weekly spiritual gathering conducted by
+        <strong>Ark Of JESUS</strong>, where believers come together in unity to worship,
+        pray, and receive the Word of God.
+      </p>
+
+      <p>
+        This meeting is held <span class="highlight">every Thursday at 9:00 PM</span>.
+        It is a dedicated time to seek God’s presence, grow spiritually, and strengthen
+        faith through fellowship.
+      </p>
+    </div>
+
+    <p class="quote">“Where two or three gather in My name, there am I with them.” – Matthew 18:20</p>
+
+    <div class="box">
+      <p><strong>📌 What Happens in the Prayer Meet?</strong></p>
+
+      <p>
+        Each session is structured to help believers experience the presence of God deeply:
+      </p>
+
+      <p>
+        🔹 <strong>Worship:</strong> The meeting begins with heartfelt worship, lifting the
+        name of Jesus through songs and praise.
+      </p>
+
+      <p>
+        🔹 <strong>Prayer:</strong> A powerful time of prayer follows, where intercession,
+        thanksgiving, and personal prayers are offered to God.
+      </p>
+
+      <p>
+        🔹 <strong>Word of God (Sermon):</strong> A spirit-filled message (approx. 1 hour)
+        is shared from the Bible, bringing guidance, correction, encouragement, and truth.
+      </p>
+    </div>
+
+    <div class="box">
+      <p><strong>🎯 Purpose of the Meeting</strong></p>
+
+      <p>
+        The Thursday Prayer Meet is conducted to:
+      </p>
+
+      <p>
+        ✔ Strengthen faith in Jesus Christ<br>
+        ✔ Encourage believers in their spiritual journey<br>
+        ✔ Provide Biblical teaching and understanding<br>
+        ✔ Create a space for united prayer and worship
+      </p>
+    </div>
+
+    <p class="quote">“JESUS IS THE WAY, THE TRUTH, AND THE LIFE”</p>
+
+    <div class="box">
+      <p><strong>⚠ Disclaimer</strong></p>
+
+      <p>
+        This prayer meeting and all related content are based on the teachings of the Holy Bible.
+        The purpose of this gathering is purely spiritual and educational, focusing on Christian
+        faith and the Gospel of Jesus Christ.
+      </p>
+
+      <p>
+        Participation is voluntary, and viewers are encouraged to seek personal understanding
+        and spiritual growth through prayer and Scripture.
+      </p>
+    </div>
+
+    <p class="quote">Amen.</p>
+
+  </div>
+
+</main>
+
+<script>
+
+function goBack(){
+  if(document.referrer){
+    window.history.back();
+  } else {
+    window.location.href = "index.html";
+  }
+}
+
+</script>
+
+</body>
+</html>

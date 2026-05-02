@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact - Ark Of JESUS</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+        /* 🔒 NAVBAR LOCK FIX */
+nav{
+  width:100%;
+  height:70px;
+  min-height:70px;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#020617;
+  box-sizing:border-box;
+}
+
+/* prevent shrinking */
+nav, nav *{
+  flex-shrink:0;
+}/* ABOUT PAGE - WORDPRESS STYLE */
+
+
+/* CONTACT PAGE */
+.contact-page{
+  padding:60px 20px;
+  display:flex;
+  justify-content:center;
+}
+
+.contact-box{
+  max-width:700px;
+  width:100%;
+  background:#1e293b;
+  padding:30px;
+  border-radius:12px;
+}
+
+/* TITLE */
+.contact-box h1{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+/* FORM */
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  padding:12px;
+  border-radius:6px;
+  border:1px solid #334155;
+  background:#020617;
+  color:white;
+  outline:none;
+}
+
+.contact-form textarea{
+  resize:none;
+  height:120px;
+}
+
+/* BUTTON */
+.contact-form button{
+  background:linear-gradient(90deg,#2563eb,#06b6d4);
+  border:none;
+  padding:12px;
+  border-radius:6px;
+  color:white;
+  font-weight:500;
+  cursor:pointer;
+}
+
+.contact-form button:hover{
+  opacity:0.9;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .contact-box{
+    padding:20px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Ark Of  JESUS</div>
+
+  <input type="checkbox" id="click">
+  <label for="click" class="menu-btn">
+    <i class="fas fa-bars"></i>
+  </label>
+
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- MAIN -->
+<main class="contact-page">
+
+  <div class="contact-box">
+    <h1>Contact Us</h1>
+
+    <!-- ✅ IMPORTANT: id="form" -->
+    <form id="form" class="contact-form">
+
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="phone" name="phone" placeholder="Your Phone" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+
+      <button type="submit">Send Message</button>
+
+    </form>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-row">
+
+    <div class="footer-col">
+      <h4>Info</h4>
+      <ul class="links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="info.html">Info Page</a></li>
+        <li><a href="https://www.whatsapp.com/channel/0029Vb4vdzJLNSa5YQFh3X3E">Whatsapp Channel</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul class="links">
+        <li><a href="gallery.html">Videos</a></li>
+        <li><a href="https://www.youtube.com/@arkofjesusofficial">Youtube</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="https://www.wa.link/50jkd8">Whatsapp</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul class="links">
+        <li><a href="mailto:shelabi12@gmail.com">Mail Us</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="privacy.html">Policy</a></li>
+        <li><a href="T&C.html">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Subscribe for updates</h4>
+
+      <form id="form" class="contact-form">
+        <input type="email" name="sub" placeholder="Your Email">
+        <button type="submit">Subscribe</button>
+      </form>
+
+      <div class="icons">
+        <i class="fa-brands fa-whatsapp" href="https://www.whatsapp.com/channel/0029Vb4vdzJLNSa5YQFh3X3E"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook"></i>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Ark Of JESUS | All Rights Reserved
+  </div>
+</footer>
+<script src="server.js"></script>
+
+</body>
+</html>
+
+
+

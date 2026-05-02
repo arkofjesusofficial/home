@@ -1,0 +1,133 @@
+* ABOUT PAGE  WORDPRESS STYLE */
+
+/* PAGE */
+.gallery{
+  padding:60px 20px;
+}
+
+.gallery h1{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+/* GRID */
+.video-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* CARD */
+.video-card{
+  background:#020617;
+  border-radius:10px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.video-card:hover{
+  transform:translateY(-5px);
+}
+
+/* THUMB */
+.video-card img{
+  width:100%;
+  aspect-ratio:16/9;   /* 🔥 keeps correct ratio */
+  object-fit:cover;
+  display:block;
+}
+
+/* TITLE */
+.video-title{
+  font-size:13px;
+  padding:8px;
+  color:#e2e8f0;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gallery - Ark Of JESUS</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+<style>
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- SCRIPT -->
+<script>
+
+// 🔥 ADD YOUR YOUTUBE LINKS HERE (can add 170+)
+const videos = [
+  "https://www.youtube.com/watch?v=uUx19Md9-Fc",
+  "https://www.youtube.com/watch?v=rwSnNilXzfI",
+  "https://www.youtube.com/watch?v=0Umgb-fCAPc",
+  "https://www.youtube.com/watch?v=grwZPLo2v6o",
+  "https://www.youtube.com/watch?v=sIhJS3rzOzo",
+  "https://www.youtube.com/watch?v=XDK1zwAySnY",
+  "https://www.youtube.com/watch?v=Y5Mg8GwbU_c",
+  "https://www.youtube.com/watch?v=fJW43Zp2MEc",
+  "https://www.youtube.com/watch?v=u5JfJCzammg",
+  "https://www.youtube.com/watch?v=r8ipgOtw9KE",
+  "https://www.youtube.com/watch?v=elnl3kfE72c",
+  "https://www.youtube.com/watch?v=hyjYtWdq3Dk"
+];
+
+// Extract video ID
+function getID(url){
+  const reg = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/;
+  return url.match(reg)[1];
+}
+
+const grid = document.getElementById("videoGrid");
+
+// Load videos
+videos.forEach(async (url)=>{
+
+  const id = getID(url);
+  const thumb = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+
+  try{
+    const res = await fetch(`https://www.youtube.com/oembed?url=${url}&format=json`);
+    const data = await res.json();
+
+    const card = document.createElement("div");
+    card.className = "video-card";
+
+    card.innerHTML = `
+      <img src="${thumb}">
+      <div class="video-title">${data.title}</div>
+    `;
+
+    // 🔥 OPEN PLAYER PAGE
+    card.onclick = () => {
+      window.location.href = `vp.html?video=${id}`;
+    };
+
+    grid.appendChild(card);
+
+  } catch(err){
+    console.log("Error loading video:", url);
+  }
+
+});
+
+</script>
+
+</body>
+</html>

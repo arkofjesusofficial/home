@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Terms & Conditions - Ark Of JESUS</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Open Sans',sans-serif;
+}
+
+body{
+  background:#0f172a;
+  color:white;
+}
+
+.player-page{
+  padding:30px 20px;
+}
+
+.back-btn{
+  display:inline-block;
+  margin-bottom:25px;
+  padding:10px 16px;
+  border:none;
+  border-radius:8px;
+  background:linear-gradient(90deg,#2563eb,#06b6d4);
+  color:white;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:500;
+}
+
+.back-btn:hover{
+  opacity:0.9;
+}
+
+.video-container{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+}
+
+h1{
+  text-align:center;
+  font-size:40px;
+}
+
+.quote{
+  text-align:center;
+  font-weight:600;
+  font-size:18px;
+  margin:25px 0;
+}
+
+p{
+  text-align:left;
+  line-height:1.8;
+  margin:15px 0;
+  color:#e2e8f0;
+}
+
+@media(max-width:768px){
+  .video-container iframe{
+    height:220px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="player-page">
+
+  <button class="back-btn" onclick="goBack()">
+    <i class="fas fa-arrow-left"></i> Back
+  </button>
+
+  <div class="video-container">
+
+    <h1>Terms & Conditions</h1>
+
+    <p class="quote">“PRAISE YOU JESUS”</p>
+
+    <p>
+      Welcome to the Terms & Conditions of the prayer ministry platform operated under
+      <strong>Ark Of JESUS</strong>. By accessing this website or YouTube channel, you agree
+      to follow these terms in accordance with Christian values and biblical teachings.
+    </p>
+
+    <p>
+      This platform is dedicated to spreading the Gospel of Jesus Christ, including prayer
+      meetings, worship sessions, Bible teachings, and Christian encouragement content.
+    </p>
+
+    <p>
+      All content is provided for spiritual, educational, and religious purposes only.
+      You agree not to misuse, copy, or modify the content in a harmful or misleading way.
+    </p>
+
+    <p>
+      Any engagement such as comments, messages, or participation in prayer meetings
+      should be respectful and aligned with Christian faith values.
+    </p>
+
+    <p>
+      The ministry may include third-party services such as YouTube for video hosting.
+      We are not responsible for external platform behavior, policies, or data handling.
+    </p>
+
+    <p>
+      We reserve the right to update, modify, or remove content at any time without prior notice
+      in order to maintain the integrity of the ministry.
+    </p>
+
+    <p>
+      <strong>Disclaimer:</strong> All teachings are based on the Bible and Christian faith.
+      This is not a commercial service. We are not liable for personal interpretation or external
+      usage of the content beyond its intended spiritual purpose.
+    </p>
+
+    <p class="quote">
+      “JESUS IS THE WAY, THE TRUTH, AND THE LIFE”
+    </p>
+
+    <p class="quote">
+      Amen.
+    </p>
+
+  </div>
+
+</main>
+
+<script>
+
+function goBack(){
+  if(document.referrer){
+    window.history.back();
+  } else {
+    window.location.href = "index.html";
+  }
+}
+
+</script>
+
+</body>
+</html>

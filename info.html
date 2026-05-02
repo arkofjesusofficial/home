@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Info - Ark Of JESUS</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Open Sans',sans-serif;
+}
+
+body{
+  background:#0f172a;
+  color:white;
+}
+
+.player-page{
+  padding:30px 20px;
+}
+
+.back-btn{
+  display:inline-block;
+  margin-bottom:25px;
+  padding:10px 16px;
+  border:none;
+  border-radius:8px;
+  background:linear-gradient(90deg,#2563eb,#06b6d4);
+  color:white;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:500;
+}
+
+.back-btn:hover{
+  opacity:0.9;
+}
+
+.video-container{
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+}
+
+h1{
+  text-align:center;
+  font-size:40px;
+}
+
+.video-title{
+  margin-top:18px;
+  font-size:18px;
+  color:#e2e8f0;
+}
+
+.quote{
+  text-align:center;
+  font-weight:600;
+  font-size:18px;
+  margin:25px 0;
+}
+
+p{
+  text-align:left;
+  line-height:1.8;
+  margin:15px 0;
+  color:#e2e8f0;
+}
+
+@media(max-width:768px){
+  .video-container iframe{
+    height:220px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="player-page">
+
+  <button class="back-btn" onclick="goBack()">
+    <i class="fas fa-arrow-left"></i> Back
+  </button>
+
+  <div class="video-container">
+
+    <h1>Info</h1>
+
+    <p class="quote">“PRAISE YOU JESUS”</p>
+
+    <p>
+      This Privacy Policy describes how the prayer meeting platform operated under
+      <strong>Ark Of JESUS</strong> collects and uses information. This website and
+      associated YouTube channel are created for Christian prayer, worship, Bible teachings,
+      and spreading the Gospel of Jesus Christ.
+    </p>
+
+    <p>
+      We do not intentionally collect personal sensitive data from visitors. Any information
+      shared through comments, messages, or contact forms is used only for ministry-related
+      communication and is never sold or misused.
+    </p>
+
+    <p>
+      Content on this platform is fully focused on Christian faith, teachings of Jesus Christ,
+      Bible verses, prayer meetings, and spiritual encouragement. All content is intended
+      for educational and religious purposes only.
+    </p>
+
+    <p>
+      According to <strong>John 8:32</strong>, “You will know the truth, and the truth will
+      set you free.” Our mission is to share the truth of the Gospel through online ministry.
+    </p>
+
+    <p>
+      We may use third-party services like YouTube for video hosting. These platforms may
+      collect their own data according to their privacy policies. We are not responsible for
+      external website policies.
+    </p>
+
+    <p>
+      <strong>Disclaimer:</strong> All teachings, prayers, and sermons are based on the Bible
+      and Christian faith. This content is not intended for commercial use or financial gain.
+      We are not responsible for any interpretation or personal use of the content outside
+      its intended spiritual purpose.
+    </p>
+
+    <p class="quote">
+      “JESUS IS THE WAY, THE TRUTH, AND THE LIFE”
+    </p>
+
+    <p class="quote">
+      Amen.
+    </p>
+
+  </div>
+
+</main>
+
+<script>
+
+function goBack(){
+  if(document.referrer){
+    window.history.back();
+  } else {
+    window.location.href = "index.html";
+  }
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery - Ark Of JESUS</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="gallery.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR START (UNCHANGED - PASTE YOUR EXISTING NAVBAR HERE) -->
+<!-- NAV -->
+<nav>
+  <div class="logo">Ark Of  JESUS</div>
+
+  <input type="checkbox" id="click">
+  <label for="click" class="menu-btn">
+    <i class="fas fa-bars"></i>
+  </label>
+
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+<!-- NAVBAR END -->
+
+
+<div class="header">
+  <h1>Ark Of JESUS Videos</h1>
+
+  <div class="search-wrapper">
+    <input type="text" id="search" class="search-box" placeholder="Search videos...">
+
+    <button class="search-btn" onclick="renderVideos()">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+</div>
+
+<div class="categories">
+<button class="cat-btn active" onclick="filterCategory('all',this)">All</button>
+<button class="cat-btn" onclick="filterCategory('live',this)">🔴 Live</button>
+<button class="cat-btn" onclick="filterCategory('videos',this)">🎬 Videos</button>
+<button class="cat-btn" onclick="filterCategory('shorts',this)">⚡ Shorts</button>
+</div>
+
+<div class="videos" id="videoContainer"></div>
+
+<!-- FOOTER START (UNCHANGED - PASTE YOUR EXISTING FOOTER HERE) -->
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-row">
+
+    <div class="footer-col">
+      <h4>Info</h4>
+      <ul class="links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="info.html">Info Page</a></li>
+        <li><a href="https://www.whatsapp.com/channel/0029Vb4vdzJLNSa5YQFh3X3E">Whatsapp Channel</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul class="links">
+        <li><a href="gallery.html">Videos</a></li>
+        <li><a href="https://www.youtube.com/@arkofjesusofficial">Youtube</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="https://www.wa.link/50jkd8">Whatsapp</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul class="links">
+        <li><a href="mailto:shelabi12@gmail.com">Mail Us</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="privacy.html">Policy</a></li>
+        <li><a href="T&C.html">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Subscribe for updates</h4>
+
+      <form id="form" class="contact-form">
+        <input type="email" name="sub" placeholder="Your Email">
+        <button type="submit">Subscribe</button>
+      </form>
+
+      <div class="icons">
+        <i class="fa-brands fa-whatsapp" href="https://www.whatsapp.com/channel/0029Vb4vdzJLNSa5YQFh3X3E"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook"></i>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Ark Of JESUS | All Rights Reserved
+  </div>
+</footer>
+<script src="server.js"></script>
+<!-- FOOTER END -->
+
+<script src="fetch_yt.js"></script>
+
+</body>
+</html>
+
