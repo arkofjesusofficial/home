@@ -381,4 +381,46 @@ span {
   .footer{
     padding:40px 15px;
   }
+  /* 🔥 ABOUT SECTION MOBILE FIX */
+@media (max-width:768px){
+
+  .about-usd{
+    height:auto; /* remove fixed height */
+    padding:40px 15px;
+  }
+
+  .aboutd{
+    flex-direction:column; /* stack image + text */
+    text-align:center;
+    gap:20px;
+  }
+
+  .pic{
+    width:100%;
+    max-width:280px;
+  }
+
+  .text{
+    width:100%;
+  }
+
+  .text h3{
+    font-size:28px; /* was 90px 😅 */
+  }
+
+  .text h5{
+    font-size:16px;
+  }
+
+  .text p{
+    font-size:14px;
+    line-height:1.6;
+    letter-spacing:0;
+  }
+
+  .hire{
+    font-size:14px;
+    padding:10px 18px;
+  }
+
 }
