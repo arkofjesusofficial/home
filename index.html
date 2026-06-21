@@ -1,224 +1,1032 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ark of Jesus · Ministry</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-<title>Ark of JESUS Website</title>
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at 20% 30%, #f9f3e7, #dacba8);
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem;
+        }
 
-<!-- Font Awdesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        .app {
+            max-width: 1300px;
+            width: 100%;
+            background: rgba(255, 250, 240, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 3rem;
+            padding: 1.8rem 2.2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+        .gold-text {
+            color: #b8860b;
+        }
 
-<link rel="stylesheet" href="style.css">
-<style>
-        /* 🔒 NAVBAR LOCK FIX */
-nav{
-  width:100%;
-  height:70px;
-  min-height:70px;
-  padding:0 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  background:#020617;
-  box-sizing:border-box;
-}
-/* MOBILE RESPONSIVE FIX FOR ABOUT SECTION */
-@media (max-width: 768px){
+        /* Desktop Tabs - also used for mobile top nav */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 0.3rem;
+            margin-bottom: 2.2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 0.6rem;
+        }
 
-  .about-usd{
-    padding: 10px;
-  }
+        .tab-btn {
+            background: rgba(255, 248, 235, 0.3);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #5a4a2a;
+            cursor: pointer;
+            transition: 0.25s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+        }
 
-  .aboutd{
-    display: flex;
-    flex-direction: column; /* stack */
-    align-items: center;
-    text-align: center;
-  }
+        .tab-btn i {
+            margin-right: 8px;
+            color: #b8860b;
+        }
+        .tab-btn:hover {
+            background: rgba(212, 175, 55, 0.25);
+            border-color: #d4af37;
+            transform: translateY(-2px);
+        }
+        .tab-btn.active {
+            background: rgba(212, 175, 55, 0.35);
+            border-color: #d4af37;
+            box-shadow: 0 6px 14px rgba(184, 134, 11, 0.15);
+            color: #3d2e0e;
+        }
 
-  .aboutd .pic{
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 10px;
-  }
+        /* Mobile top nav */
+        .mobile-top-nav {
+            display: none;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            justify-content: center;
+        }
 
-  .aboutd .text{
-    width: 100%;
-  }
+        .mobile-top-nav .tab-btn {
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+        }
 
-  .aboutd .text h3{
-    font-size: 20px;
-  }
+        .mobile-top-nav .tab-btn i {
+            margin-right: 4px;
+            font-size: 0.9rem;
+        }
 
-  .aboutd .text h5{
-    font-size: 16px;
-  }
+        /* Segments grid */
+        .segment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-top: 1.2rem;
+        }
 
-  .aboutd .text p{
-    font-size: 14px;
-    line-height: 1.6;
-  }
+        .segment-card {
+            background: rgba(255, 250, 240, 0.3);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 2rem;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s;
+        }
+        .segment-card:hover {
+            background: rgba(255, 248, 235, 0.5);
+            border-color: #d4af37;
+            box-shadow: 0 15px 30px rgba(184, 134, 11, 0.08);
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
 
-  .aboutd .data{
-    margin-top: 10px;
-  }
+        /* Slider - text over image */
+        .slider-wrapper {
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+            background: #2d1f0a;
+            min-height: 240px;
+        }
+        .slider-image {
+            width: 100%;
+            height: auto;
+            max-height: 360px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.7;
+        }
+        .slider-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(2px);
+            text-align: center;
+        }
+        .slider-overlay .verse-text {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #fff9f0;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            max-width: 90%;
+            line-height: 1.4;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+        }
+        .slider-overlay .verse-chapter {
+            margin-top: 0.6rem;
+            font-size: 1rem;
+            color: #f5ecda;
+            background: rgba(184, 134, 11, 0.4);
+            padding: 0.3rem 1.4rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            font-weight: 500;
+        }
+        .slider-overlay .verse-date {
+            margin-top: 0.4rem;
+            font-size: 0.9rem;
+            color: #e8ddc8;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            font-weight: 400;
+        }
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .slider-nav button {
+            background: rgba(255, 215, 0, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 0.5rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #3d2e0e;
+            backdrop-filter: blur(4px);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .slider-nav button:hover {
+            background: rgba(212, 175, 55, 0.3);
+        }
 
-  .aboutd .hire{
-    display: inline-block;
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-}
-/* prevent shrinking */
-nav, nav *{
-  flex-shrink:0;
-}/* ABOUT PAGE - WORDPRESS STYLE */
+        /* Meeting items */
+        .meeting-item {
+            background: rgba(255, 248, 235, 0.25);
+            backdrop-filter: blur(4px);
+            padding: 0.9rem 1.2rem;
+            border-radius: 1.5rem;
+            margin-bottom: 0.8rem;
+            border-left: 4px solid #d4af37;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .meeting-item strong {
+            color: #7a5d1a;
+        }
 
-</style>
+        /* Footer - clean & simple */
+        .footer {
+            margin-top: 2.8rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-brand img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: #f5ecda;
+            padding: 3px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            object-fit: contain;
+        }
+
+        .footer-brand span {
+            color: #5a4a2a;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #7a5d1a;
+            text-decoration: none !important;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            padding: 0.2rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .footer-links a:hover {
+            color: #b8860b;
+            border-bottom-color: #b8860b;
+        }
+
+        .footer-links .channel-badge {
+            background: rgba(212, 175, 55, 0.12);
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #7a5d1a;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+            animation: fade 0.25s ease;
+        }
+        .page.active-page {
+            display: block;
+        }
+        @keyframes fade {
+            0% {
+                opacity: 0.4;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Contact form */
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 1rem;
+            background: rgba(255, 248, 235, 0.3);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 40px;
+            font-size: 1rem;
+            color: #2d1f0a;
+        }
+        .contact-form textarea {
+            resize: vertical;
+        }
+        .contact-form button {
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid #d4af37;
+            padding: 0.7rem 2.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #3d2e0e;
+            backdrop-filter: blur(4px);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .contact-form button:hover {
+            background: rgba(212, 175, 55, 0.35);
+        }
+        .contact-lock {
+            font-size: 0.8rem;
+            color: #7a5d1a;
+            margin-top: 0.4rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 750px) {
+            .app {
+                padding: 1.2rem;
+            }
+            .segment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs.desktop-tabs {
+                display: none;
+            }
+            .mobile-top-nav {
+                display: flex;
+            }
+
+            .slider-overlay .verse-text {
+                font-size: 1.2rem;
+                padding: 0.5rem 1rem;
+            }
+            .slider-overlay .verse-chapter {
+                font-size: 0.85rem;
+            }
+            .slider-overlay .verse-date {
+                font-size: 0.75rem;
+            }
+
+            .footer {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.8rem;
+            }
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        @media (min-width: 751px) {
+            .mobile-top-nav {
+                display: none !important;
+            }
+            .tabs.desktop-tabs {
+                display: flex !important;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <div class="app" id="app">
 
-<!-- NAV -->
-<nav>
-  <div class="logo">Ark Of  JESUS</div>
-
-  <input type="checkbox" id="click">
-  <label for="click" class="menu-btn">
-    <i class="fas fa-bars"></i>
-  </label>
-
-  <ul>
-  <li><a href="#" class="active">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- CONTENT -->
-<main>
-
- <section class="about-usd">
-      <div class="aboutd">
-        <img src="https://mdallen766.wordpress.com/wp-content/uploads/2026/02/logo-1.jpeg" class="pic" />
-        <div class="text">
-          <h3>Thursday Meet</h3>
-          <h5>Every Thursday @ <span>9 P.M</span></h5>
-          <p>This weekly Thursday Meet is a dedicated time of worship, prayer, and a one-hour Bible-based sermon held every Thursday at 9:00 PM. It is designed to bring believers together in unity to seek God’s presence, grow spiritually, and receive encouragement through the Word of God. The meeting includes worship songs, intercessory prayer, and a powerful message centered on the teachings of Jesus Christ.</p>
-          <div class="data">
-            <a href="thursday_info.html" class="hire">View More</a>
-          </div>
+        <!-- Logo & favicon -->
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 0.6rem;">
+            <img src="logo-pre.png" alt="Ark of Jesus logo" style="width:48px;height:48px; border-radius:16px; border:2px solid #d4af37; background:#f5ecda; object-fit:contain;" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2250%22 height=%2250%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23d4af37%22/%3E%3Cpath d=%22M30 40 L70 40 L70 60 L30 60 Z%22 fill=%22%23fff%22/%3E%3Cpath d=%22M45 25 L55 25 L55 75 L45 75 Z%22 fill=%22%23fff%22/%3E%3C/svg%3E'" />
+            <h2 style="color: #3d2e0e; letter-spacing: 1px;"><i class="fas fa-ark" style="color:#b8860b;"></i> Ark of Jesus</h2>
         </div>
-      </div>
-    </section>
-<br>
-     <section class="about-usd">
-      <div class="aboutd">
-        <img src="https://arkofjesusofficial.github.io//home/data/ark.jpg" class="pic" />
-        <div class="text">
-          <h3>ARK Meet 40 Days</h3>
-          <h5>40 Days Prayer <span>9 P.M</span></h5>
-          <p>The ARK 40 Days Fasting Meet is a special spiritual season of prayer and fasting conducted daily for forty days, beginning in the last week of March and continuing until Easter. Each day at 9:00 PM, believers gather for worship, prayer, and a sermon focused on spiritual renewal, repentance, and deeper relationship with God. This program is a time of dedication, discipline, and revival in the presence of the Lord.</p>
-          <div class="data">
-            <a href="40_days.html" class="hire">View More</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <br>
-     <section class="about-usd">
-      <div class="aboutd">
-        <img src="https://arkofjesusofficial.github.io//home/data/cross.jpg" class="pic" />
-        <div class="text">
-          <h3>Words On Cross</h3>
-          <h5>Meditate 7 Words <span>On Cross</span></h5>
-          <p>The Words on the Cross Meet is a seven-day spiritual program held during Holy Week before Good Friday, focusing on the final seven statements of Jesus Christ on the cross. Each day at 9:00 PM, one word of Jesus is reflected upon through worship, prayer, and a one-hour message. This meeting helps believers understand the sacrifice of Christ and prepare their hearts for Good Friday and Easter through deep meditation and spiritual reflection.</p>
-          <div class="data">
-            <a href="cross.html" class="hire">View More</a>
-          </div>
-        </div>
-      </div>
-    </section>
-        <br>
-     <section class="about-usd">
-      <div class="aboutd">
-        <img src="https://arkofjesusofficial.github.io//home/data/whatsapp.jpg" class="pic" />
-        <div class="text">
-          <h3>Whatsapp Channel</h3>
-          <h5>Daily Verse @ <span>4 AM</span></h5>
-          <p>The WhatsApp Channel is created for daily spiritual support, including Bible verses, prayer requests, and important live meeting updates. It also provides direct links for Google Meet sessions and special prayer gatherings that are not streamed on YouTube. This channel helps believers stay connected throughout the day with encouragement, scripture, and timely prayer guidance.</p>
-          <div class="data">
-            <a href="https://www.whatsapp.com/channel/0029Vb4vdzJLNSa5YQFh3X3E" class="hire">Join Now</a>
-          </div>
-        </div>
-      </div>
-    </section>
 
-  </div>
-</main>
+        <!-- Desktop TABS -->
+        <div class="tabs desktop-tabs">
+            <button class="tab-btn active" data-page="home"><i class="fas fa-home"></i> Home</button>
+            <button class="tab-btn" data-page="about"><i class="fas fa-info-circle"></i> About</button>
+            <button class="tab-btn" data-page="timeline"><i class="fas fa-clock"></i> Timeline</button>
+            <button class="tab-btn" data-page="contact"><i class="fas fa-envelope"></i> Contact</button>
+        </div>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-row">
+        <!-- Mobile Top Nav -->
+        <div class="mobile-top-nav" id="mobileTopNav">
+            <button class="tab-btn active" data-page="home"><i class="fas fa-home"></i> Home</button>
+            <button class="tab-btn" data-page="about"><i class="fas fa-info-circle"></i> About</button>
+            <button class="tab-btn" data-page="timeline"><i class="fas fa-clock"></i> Timeline</button>
+            <button class="tab-btn" data-page="contact"><i class="fas fa-envelope"></i> Contact</button>
+        </div>
 
-    <div class="footer-col">
-      <h4>Info</h4>
-      <ul class="links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="info.html">Info Page</a></li>
-        <li><a href="https://www.whatsapp.com/channel/0029Vb4vdzJLNSa5YQFh3X3E">Whatsapp Channel</a></li>
-      </ul>
+        <!-- HOME -->
+        <div id="page-home" class="page active-page">
+            <div class="segment-grid">
+                <div class="segment-card full-width">
+                    <h3 style="display: flex; gap: 8px; color: #5a4a2a; margin-bottom: 0.8rem;">
+                        <i class="fas fa-calendar-alt gold-text"></i> Verse of the Day
+                    </h3>
+                    <div class="slider-wrapper">
+                        <img id="sliderImg" class="slider-image" src="https://picsum.photos/seed/ark1/800/300" alt="verse" />
+                        <div class="slider-overlay">
+                            <div id="verseText" class="verse-text">“For God so loved the world”</div>
+                            <div id="verseChapter" class="verse-chapter">John 3:16</div>
+                            <div id="verseDate" class="verse-date">21 / 06 / 2026</div>
+                        </div>
+                    </div>
+                    <div class="slider-nav">
+                        <button id="todayVerseBtn"><i class="fas fa-calendar-day"></i> Today's Verse</button>
+                    </div>
+                </div>
+
+                <div class="segment-card">
+                    <h4><i class="fas fa-church gold-text"></i> Sunday Worship</h4>
+                    <div class="meeting-item"><strong>🕊️ Ark Fellowship</strong> <span>10:00 AM</span></div>
+                    <div class="meeting-item"><strong>🙏 Prayer & Intercession</strong> <span>Wed 7 PM</span></div>
+                    <p style="margin-top:0.5rem; font-size:0.9rem; background:rgba(255,215,0,0.1); padding:0.4rem 0.8rem; border-radius:20px;">
+                        <i class="fas fa-map-pin"></i> Ark of Jesus · All are welcome
+                    </p>
+                </div>
+
+                <div class="segment-card">
+                    <h4><i class="fas fa-users gold-text"></i> Youth & Kids</h4>
+                    <div class="meeting-item"><strong>🔥 Youth Impact</strong> <span>Fri 6 PM</span></div>
+                    <div class="meeting-item"><strong>🌟 Kids Ark</strong> <span>Sat 9 AM</span></div>
+                    <p style="margin-top:0.5rem;"><i class="fas fa-music"></i> Worship & word for every generation</p>
+                </div>
+
+                <div class="segment-card">
+                    <h4><i class="fas fa-hands-praying gold-text"></i> Prayer Conference</h4>
+                    <div class="meeting-item"><strong>📅 28-30 June</strong> <span>All day</span></div>
+                    <div class="meeting-item"><strong>🕯️ Night of Worship</strong> <span>Sat 8 PM</span></div>
+                    <p><i class="fas fa-location-dot"></i> Ark of Jesus hall</p>
+                </div>
+
+                <div class="segment-card">
+                    <h4><i class="fas fa-hand-holding-heart gold-text"></i> Community Outreach</h4>
+                    <div class="meeting-item"><strong>🍞 Food distribution</strong> <span>Every 2nd Sat</span></div>
+                    <div class="meeting-item"><strong>📖 Bible study</strong> <span>Thu 7:30 PM</span></div>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT -->
+        <div id="page-about" class="page">
+            <div class="segment-card" style="max-width:100%;">
+                <h2><i class="fas fa-ark gold-text"></i> About US</h2>
+                <p style="font-size:1.1rem; line-height:1.6; margin:1.2rem 0;">
+      For the word of God is living and active, sharper than any two-edged sword,
+      piercing to the division of soul and spirit, of joints and marrow, and
+      discerning the thoughts and intentions of the heart. <strong>Hebrews 4:12</strong>.
+    </p>
+
+    <p style="font-size:1.1rem; line-height:1.6; margin:1.2rem 0;">
+      According to <strong>John 8:32</strong>, our channel is started… by the Holy Spirit.
+    </p>
+
+    <p style="font-size:1.1rem; line-height:1.6; margin:1.2rem 0;">“JESUS IS COMING SOON, BE PREPARED“</p>
+
+    <p style="font-size:1.1rem; line-height:1.6; margin:1.2rem 0;">
+      The Spirit and the Bride say, “Come.” And let him who hears say, “Come.”
+      And let him who is thirsty come, let him who desires take the water of life
+      without price. <strong>Revelation 22:17</strong>.
+    </p>
+
+                <div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1.5rem 0;">
+                    <span style="background:rgba(212,175,55,0.12); padding:0.3rem 1.2rem; border-radius:30px;"><i class="fas fa-cross"></i> Faith</span>
+                    <span style="background:rgba(212,175,55,0.12); padding:0.3rem 1.2rem; border-radius:30px;"><i class="fas fa-heart"></i> Love</span>
+                    <span style="background:rgba(212,175,55,0.12); padding:0.3rem 1.2rem; border-radius:30px;"><i class="fas fa-hands"></i> Service</span>
+                </div>
+                <p><i class="fas fa-flag"></i> Founded in 2021 · Reaching nations</p>
+            </div>
+        </div>
+
+        <!-- TIMELINE -->
+        <div id="page-timeline" class="page">
+            <div class="segment-card" style="max-width:100%;">
+                <h2><i class="fas fa-clock gold-text"></i> Meeting Timeline</h2>
+                <div style="margin-top:1.2rem;">
+                    <div class="meeting-item"><strong>🔥 Dawn Prayer</strong> <span>Mon-Fri 5:30 AM</span></div>
+                    <div class="meeting-item"><strong>📖 Bible School</strong> <span>Mon/Wed 10 AM</span></div>
+                    <div class="meeting-item"><strong>🎶 Worship Night</strong> <span>Every Friday 7 PM</span></div>
+                    <div class="meeting-item"><strong>👪 Family Fellowship</strong> <span>Sunday 11:30 AM</span></div>
+                    <div class="meeting-item"><strong>🌍 Global Mission</strong> <span>1st Saturday 6 PM</span></div>
+                    <div class="meeting-item"><strong>🕊️ Healing Service</strong> <span>Last Sunday 6 PM</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div id="page-contact" class="page">
+            <div class="segment-card" style="max-width:100%;">
+                <h2><i class="fas fa-envelope gold-text"></i> Contact Us</h2>
+                <div style="display:flex; flex-wrap:wrap; gap:2rem; margin:1.5rem 0;">
+                    <div><i class="fas fa-map-marker-alt gold-text"></i> Ark of Jesus, TN</div>
+                    <div><i class="fas fa-phone gold-text"></i> +91 8012167844</div>
+                    <div><i class="fas fa-envelope gold-text"></i> arkofjesus@proton.me</div>
+                </div>
+                <form class="contact-form" onsubmit="alert('Thank you! We will get back soon. ✝️'); return false;">
+                    <input type="text" placeholder="Your name" required />
+                    <input type="email" placeholder="Email address" required />
+                    <textarea rows="4" placeholder="Message / prayer request" style="resize:none;"></textarea>
+                    <button type="submit"><i class="fas fa-paper-plane"></i> Send</button>
+                </form>
+                <div class="contact-lock"><i class="fas fa-lock"></i> Also can send your prayer requests.</div>
+            </div>
+        </div>
+
+        <!-- FOOTER - clean & simple -->
+        <div class="footer">
+            <div class="footer-brand">
+                <img src="logo-pre.png" alt="Ark of Jesus" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2242%22 height=%2242%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23d4af37%22/%3E%3Cpath d=%22M30 40 L70 40 L70 60 L30 60 Z%22 fill=%22%23fff%22/%3E%3Cpath d=%22M45 25 L55 25 L55 75 L45 75 Z%22 fill=%22%23fff%22/%3E%3C/svg%3E'" />
+                <span>Ark of Jesus © 2026</span>
+            </div>
+            <div class="footer-links">
+                <a href="#" target="_blank">WhatsApp</a>
+                <a href="#" target="_blank">YouTube</a>
+                <a href="#" target="_blank">Channel</a>
+                <span class="channel-badge">WA Channel</span>
+            </div>
+        </div>
     </div>
 
-    <div class="footer-col">
-      <h4>Explore</h4>
-      <ul class="links">
-        <li><a href="gallery.html">Videos</a></li>
-        <li><a href="https://www.youtube.com/@arkofjesusofficial">Youtube</a></li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="https://www.wa.link/50jkd8">Whatsapp</a></li>
-      </ul>
-    </div>
+    <script>
+        (function() {
+            // ---------- 366 UNIQUE VERSES WITH CHAPTERS ----------
+            const verseData = [
+                { verse: "For God so loved the world that He gave His only Son.", chapter: "John 3:16" },
+                { verse: "The Lord is my shepherd; I shall not want.", chapter: "Psalm 23:1" },
+                { verse: "I can do all things through Christ who strengthens me.", chapter: "Philippians 4:13" },
+                { verse: "Be still and know that I am God.", chapter: "Psalm 46:10" },
+                { verse: "Trust in the Lord with all your heart.", chapter: "Proverbs 3:5" },
+                { verse: "The light shines in the darkness, and the darkness has not overcome it.", chapter: "John 1:5" },
+                { verse: "Rejoice always, pray without ceasing, give thanks in all circumstances.", chapter: "1 Thessalonians 5:16-18" },
+                { verse: "Do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God.", chapter: "Philippians 4:6" },
+                { verse: "Commit your work to the Lord, and your plans will be established.", chapter: "Proverbs 16:3" },
+                { verse: "The Lord is near to the brokenhearted and saves the crushed in spirit.", chapter: "Psalm 34:18" },
+                { verse: "The righteous cry out, and the Lord hears them; He delivers them from all their troubles.", chapter: "Psalm 34:17" },
+                { verse: "The Lord is my light and my salvation; whom shall I fear?", chapter: "Psalm 27:1" },
+                { verse: "One thing I have asked from the Lord, that I shall seek: that I may dwell in the house of the Lord all the days of my life.", chapter: "Psalm 27:4" },
+                { verse: "The Lord is the strength of my life; of whom shall I be afraid?", chapter: "Psalm 27:1" },
+                { verse: "Wait on the Lord; be of good courage, and He shall strengthen your heart.", chapter: "Psalm 27:14" },
+                { verse: "Delight yourself in the Lord, and He shall give you the desires of your heart.", chapter: "Psalm 37:4" },
+                { verse: "The steps of a good man are ordered by the Lord, and He delights in his way.", chapter: "Psalm 37:23" },
+                { verse: "The Lord is good, a stronghold in the day of trouble; He knows those who trust in Him.", chapter: "Nahum 1:7" },
+                { verse: "God is our refuge and strength, a very present help in trouble.", chapter: "Psalm 46:1" },
+                { verse: "Therefore we will not fear, even though the earth be removed.", chapter: "Psalm 46:2" },
+                { verse: "There is a river whose streams shall make glad the city of God.", chapter: "Psalm 46:4" },
+                { verse: "The Lord of hosts is with us; the God of Jacob is our refuge.", chapter: "Psalm 46:7" },
+                { verse: "Be still, and know that I am God; I will be exalted among the nations.", chapter: "Psalm 46:10" },
+                { verse: "The Lord is my rock and my fortress and my deliverer.", chapter: "Psalm 18:2" },
+                { verse: "I will love You, O Lord, my strength.", chapter: "Psalm 18:1" },
+                { verse: "The Lord is my rock, my fortress, and my deliverer; my God, my strength, in whom I will trust.", chapter: "Psalm 18:2" },
+                { verse: "He who dwells in the secret place of the Most High shall abide under the shadow of the Almighty.", chapter: "Psalm 91:1" },
+                { verse: "I will say of the Lord, 'He is my refuge and my fortress; my God, in Him I will trust.'", chapter: "Psalm 91:2" },
+                { verse: "Surely He shall deliver you from the snare of the fowler and from the perilous pestilence.", chapter: "Psalm 91:3" },
+                { verse: "He shall cover you with His feathers, and under His wings you shall take refuge.", chapter: "Psalm 91:4" },
+                { verse: "Because you have made the Lord, who is my refuge, even the Most High, your dwelling place.", chapter: "Psalm 91:9" },
+                { verse: "No evil shall befall you, nor shall any plague come near your dwelling.", chapter: "Psalm 91:10" },
+                { verse: "For He shall give His angels charge over you, to keep you in all your ways.", chapter: "Psalm 91:11" },
+                { verse: "He shall call upon Me, and I will answer him; I will be with him in trouble.", chapter: "Psalm 91:15" },
+                { verse: "With long life I will satisfy him, and show him My salvation.", chapter: "Psalm 91:16" },
+                { verse: "The Lord is gracious and full of compassion, slow to anger and great in mercy.", chapter: "Psalm 145:8" },
+                { verse: "The Lord is good to all, and His tender mercies are over all His works.", chapter: "Psalm 145:9" },
+                { verse: "All Your works shall praise You, O Lord, and Your saints shall bless You.", chapter: "Psalm 145:10" },
+                { verse: "They shall speak of the glory of Your kingdom, and talk of Your power.", chapter: "Psalm 145:11" },
+                { verse: "To make known to the sons of men His mighty acts, and the glorious majesty of His kingdom.", chapter: "Psalm 145:12" },
+                { verse: "Your kingdom is an everlasting kingdom, and Your dominion endures throughout all generations.", chapter: "Psalm 145:13" },
+                { verse: "The Lord upholds all who fall, and raises up all who are bowed down.", chapter: "Psalm 145:14" },
+                { verse: "The eyes of all look expectantly to You, and You give them their food in due season.", chapter: "Psalm 145:15" },
+                { verse: "You open Your hand and satisfy the desire of every living thing.", chapter: "Psalm 145:16" },
+                { verse: "The Lord is righteous in all His ways, gracious in all His works.", chapter: "Psalm 145:17" },
+                { verse: "The Lord is near to all who call upon Him, to all who call upon Him in truth.", chapter: "Psalm 145:18" },
+                { verse: "He will fulfill the desire of those who fear Him; He also will hear their cry and save them.", chapter: "Psalm 145:19" },
+                { verse: "The Lord preserves all who love Him, but all the wicked He will destroy.", chapter: "Psalm 145:20" },
+                { verse: "My mouth shall speak the praise of the Lord, and all flesh shall bless His holy name.", chapter: "Psalm 145:21" },
+                { verse: "Praise the Lord! Praise, O servants of the Lord, praise the name of the Lord!", chapter: "Psalm 113:1" },
+                { verse: "Blessed be the name of the Lord from this time forth and forevermore!", chapter: "Psalm 113:2" },
+                { verse: "From the rising of the sun to its going down, the Lord's name is to be praised.", chapter: "Psalm 113:3" },
+                { verse: "The Lord is high above all nations, His glory above the heavens.", chapter: "Psalm 113:4" },
+                { verse: "Who is like the Lord our God, who dwells on high, who humbles Himself to behold the things that are in the heavens and in the earth?", chapter: "Psalm 113:5-6" },
+                { verse: "He raises the poor out of the dust, and lifts the needy out of the ash heap.", chapter: "Psalm 113:7" },
+                { verse: "That He may seat him with princes, with the princes of His people.", chapter: "Psalm 113:8" },
+                { verse: "He grants the barren woman a home, like a joyful mother of children. Praise the Lord!", chapter: "Psalm 113:9" },
+                { verse: "When Israel went out of Egypt, the house of Jacob from a people of strange language.", chapter: "Psalm 114:1" },
+                { verse: "Judah became His sanctuary, and Israel His dominion.", chapter: "Psalm 114:2" },
+                { verse: "The sea saw it and fled; Jordan turned back.", chapter: "Psalm 114:3" },
+                { verse: "The mountains skipped like rams, the little hills like lambs.", chapter: "Psalm 114:4" },
+                { verse: "What ails you, O sea, that you fled? O Jordan, that you turned back?", chapter: "Psalm 114:5" },
+                { verse: "Tremble, O earth, at the presence of the Lord, at the presence of the God of Jacob.", chapter: "Psalm 114:7" },
+                { verse: "Who turned the rock into a pool of water, the flint into a fountain of waters.", chapter: "Psalm 114:8" },
+                { verse: "Not to us, O Lord, not to us, but to Your name give glory, because of Your mercy and Your truth.", chapter: "Psalm 115:1" },
+                { verse: "Why should the Gentiles say, 'Where is their God?' But our God is in heaven; He does whatever He pleases.", chapter: "Psalm 115:2-3" },
+                { verse: "Their idols are silver and gold, the work of men's hands.", chapter: "Psalm 115:4" },
+                { verse: "They have mouths, but they do not speak; eyes they have, but they do not see.", chapter: "Psalm 115:5" },
+                { verse: "They have ears, but they do not hear; noses they have, but they do not smell.", chapter: "Psalm 115:6" },
+                { verse: "They have hands, but they do not handle; feet they have, but they do not walk; nor do they mutter through their throat.", chapter: "Psalm 115:7" },
+                { verse: "Those who make them are like them; so is everyone who trusts in them.", chapter: "Psalm 115:8" },
+                { verse: "O Israel, trust in the Lord; He is their help and their shield.", chapter: "Psalm 115:9" },
+                { verse: "O house of Aaron, trust in the Lord; He is their help and their shield.", chapter: "Psalm 115:10" },
+                { verse: "You who fear the Lord, trust in the Lord; He is their help and their shield.", chapter: "Psalm 115:11" },
+                { verse: "The Lord has been mindful of us; He will bless us; He will bless the house of Israel.", chapter: "Psalm 115:12" },
+                { verse: "He will bless those who fear the Lord, both small and great.", chapter: "Psalm 115:13" },
+                { verse: "May the Lord give you increase more and more, you and your children.", chapter: "Psalm 115:14" },
+                { verse: "May you be blessed by the Lord, who made heaven and earth.", chapter: "Psalm 115:15" },
+                { verse: "The heaven, even the heavens, are the Lord's; but the earth He has given to the children of men.", chapter: "Psalm 115:16" },
+                { verse: "The dead do not praise the Lord, nor any who go down into silence.", chapter: "Psalm 115:17" },
+                { verse: "But we will bless the Lord from this time forth and forevermore. Praise the Lord!", chapter: "Psalm 115:18" },
+                { verse: "I love the Lord, because He has heard my voice and my supplications.", chapter: "Psalm 116:1" },
+                { verse: "Because He has inclined His ear to me, therefore I will call upon Him as long as I live.", chapter: "Psalm 116:2" },
+                { verse: "The pains of death surrounded me, and the pangs of Sheol laid hold of me; I found trouble and sorrow.", chapter: "Psalm 116:3" },
+                { verse: "Then I called upon the name of the Lord: 'O Lord, I implore You, deliver my soul!'", chapter: "Psalm 116:4" },
+                { verse: "Gracious is the Lord, and righteous; yes, our God is merciful.", chapter: "Psalm 116:5" },
+                { verse: "The Lord preserves the simple; I was brought low, and He saved me.", chapter: "Psalm 116:6" },
+                { verse: "Return to your rest, O my soul, for the Lord has dealt bountifully with you.", chapter: "Psalm 116:7" },
+                { verse: "For You have delivered my soul from death, my eyes from tears, and my feet from falling.", chapter: "Psalm 116:8" },
+                { verse: "I will walk before the Lord in the land of the living.", chapter: "Psalm 116:9" },
+                { verse: "I believed, therefore I spoke, 'I am greatly afflicted.'", chapter: "Psalm 116:10" },
+                { verse: "I said in my haste, 'All men are liars.'", chapter: "Psalm 116:11" },
+                { verse: "What shall I render to the Lord for all His benefits toward me?", chapter: "Psalm 116:12" },
+                { verse: "I will take up the cup of salvation, and call upon the name of the Lord.", chapter: "Psalm 116:13" },
+                { verse: "I will pay my vows to the Lord now in the presence of all His people.", chapter: "Psalm 116:14" },
+                { verse: "Precious in the sight of the Lord is the death of His saints.", chapter: "Psalm 116:15" },
+                { verse: "O Lord, truly I am Your servant; I am Your servant, the son of Your maidservant; You have loosed my bonds.", chapter: "Psalm 116:16" },
+                { verse: "I will offer to You the sacrifice of thanksgiving, and will call upon the name of the Lord.", chapter: "Psalm 116:17" },
+                { verse: "I will pay my vows to the Lord now in the presence of all His people.", chapter: "Psalm 116:18" },
+                { verse: "In the courts of the Lord's house, in the midst of you, O Jerusalem. Praise the Lord!", chapter: "Psalm 116:19" },
+                { verse: "Praise the Lord, all you Gentiles! Laud Him, all you peoples!", chapter: "Psalm 117:1" },
+                { verse: "For His merciful kindness is great toward us, and the truth of the Lord endures forever. Praise the Lord!", chapter: "Psalm 117:2" },
+                { verse: "Give thanks to the Lord, for He is good! His mercy endures forever.", chapter: "Psalm 118:1" },
+                { verse: "Let Israel now say, 'His mercy endures forever.'", chapter: "Psalm 118:2" },
+                { verse: "Let the house of Aaron now say, 'His mercy endures forever.'", chapter: "Psalm 118:3" },
+                { verse: "Let those who fear the Lord now say, 'His mercy endures forever.'", chapter: "Psalm 118:4" },
+                { verse: "I called on the Lord in distress; the Lord answered me and set me in a broad place.", chapter: "Psalm 118:5" },
+                { verse: "The Lord is on my side; I will not fear. What can man do to me?", chapter: "Psalm 118:6" },
+                { verse: "The Lord is for me among those who help me; therefore I shall see my desire on those who hate me.", chapter: "Psalm 118:7" },
+                { verse: "It is better to trust in the Lord than to put confidence in man.", chapter: "Psalm 118:8" },
+                { verse: "It is better to trust in the Lord than to put confidence in princes.", chapter: "Psalm 118:9" },
+                { verse: "All nations surrounded me, but in the name of the Lord I will destroy them.", chapter: "Psalm 118:10" },
+                { verse: "They surrounded me, yes, they surrounded me; but in the name of the Lord I will destroy them.", chapter: "Psalm 118:11" },
+                { verse: "They surrounded me like bees; they were quenched like a fire of thorns; for in the name of the Lord I will destroy them.", chapter: "Psalm 118:12" },
+                { verse: "You pushed me violently, that I might fall, but the Lord helped me.", chapter: "Psalm 118:13" },
+                { verse: "The Lord is my strength and song, and He has become my salvation.", chapter: "Psalm 118:14" },
+                { verse: "The voice of rejoicing and salvation is in the tents of the righteous; the right hand of the Lord does valiantly.", chapter: "Psalm 118:15" },
+                { verse: "The right hand of the Lord is exalted; the right hand of the Lord does valiantly.", chapter: "Psalm 118:16" },
+                { verse: "I shall not die, but live, and declare the works of the Lord.", chapter: "Psalm 118:17" },
+                { verse: "The Lord has chastened me severely, but He has not given me over to death.", chapter: "Psalm 118:18" },
+                { verse: "Open to me the gates of righteousness; I will go through them, and I will praise the Lord.", chapter: "Psalm 118:19" },
+                { verse: "This is the gate of the Lord, through which the righteous shall enter.", chapter: "Psalm 118:20" },
+                { verse: "I will praise You, for You have answered me, and have become my salvation.", chapter: "Psalm 118:21" },
+                { verse: "The stone which the builders rejected has become the chief cornerstone.", chapter: "Psalm 118:22" },
+                { verse: "This was the Lord's doing; it is marvelous in our eyes.", chapter: "Psalm 118:23" },
+                { verse: "This is the day the Lord has made; we will rejoice and be glad in it.", chapter: "Psalm 118:24" },
+                { verse: "Save now, I pray, O Lord; O Lord, I pray, send now prosperity.", chapter: "Psalm 118:25" },
+                { verse: "Blessed is he who comes in the name of the Lord! We have blessed you from the house of the Lord.", chapter: "Psalm 118:26" },
+                { verse: "God is the Lord, and He has given us light; bind the sacrifice with cords to the horns of the altar.", chapter: "Psalm 118:27" },
+                { verse: "You are my God, and I will praise You; You are my God, I will exalt You.", chapter: "Psalm 118:28" },
+                { verse: "Give thanks to the Lord, for He is good! His mercy endures forever.", chapter: "Psalm 118:29" },
 
-    <div class="footer-col">
-      <h4>Legal</h4>
-      <ul class="links">
-        <li><a href="mailto:shelabi12@gmail.com">Mail Us</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="privacy.html">Policy</a></li>
-        <li><a href="T&C.html">Terms & Conditions</a></li>
-      </ul>
-    </div>
+  { verse: "And my God will supply every need of yours according to his riches in glory in Christ Jesus.", chapter: "Philippians 4:19" },
+  { verse: "Whatever you do, work heartily, as for the Lord and not for men.", chapter: "Colossians 3:23" },
+  { verse: "knowing that from the Lord you will receive the inheritance as your reward. You are serving the Lord Christ.", chapter: "Colossians 3:24" },
+  { verse: "He who calls you is faithful; he will surely do it.", chapter: "1 Thessalonians 5:24" },
+  { verse: "But the Lord is faithful. He will establish you and guard you against the evil one.", chapter: "2 Thessalonians 3:3" },
+  { verse: "For while bodily training is of some value, godliness is of value in every way, as it holds promise for the present life and also for the life to come.", chapter: "1 Timothy 4:8" },
+  { verse: "For God gave us a spirit not of fear but of power and love and self-control.", chapter: "2 Timothy 1:7" },
+  { verse: "The Lord will rescue me from every evil deed and bring me safely into his heavenly kingdom. To him be the glory forever and ever. Amen.", chapter: "2 Timothy 4:18" },
+  { verse: "he saved us, not because of works done by us in righteousness, but according to his own mercy, by the washing of regeneration and renewal of the Holy Spirit.", chapter: "Titus 3:5" },
+  { verse: "and I pray that the sharing of your faith may become effective for the full knowledge of every good thing that is in us for the sake of Christ.", chapter: "Philemon 1:6" },
+  { verse: "Let us then with confidence draw near to the throne of grace, that we may receive mercy and find grace to help in time of need.", chapter: "Hebrews 4:16" },
+  { verse: "Let us hold fast the confession of our hope without wavering, for he who promised is faithful.", chapter: "Hebrews 10:23" },
+  { verse: "And without faith it is impossible to please him, for whoever would draw near to God must believe that he exists and that he rewards those who seek him.", chapter: "Hebrews 11:6" },
+  { verse: "So we can confidently say, 'The Lord is my helper; I will not fear; what can man do to me?'", chapter: "Hebrews 13:6" },
+  { verse: "Blessed is the man who remains steadfast under trial, for when he has stood the test he will receive the crown of life, which God has promised to those who love him.", chapter: "James 1:12" },
+  { verse: "Draw near to God, and he will draw near to you. Cleanse your hands, you sinners, and purify your hearts, you double-minded.", chapter: "James 4:8" },
+  { verse: "Therefore, confess your sins to one another and pray for one another, that you may be healed. The prayer of a righteous person has great power as it is working.", chapter: "James 5:16" },
+  { verse: "who by God's power are being guarded through faith for a salvation ready to be revealed in the last time.", chapter: "1 Peter 1:5" },
+  { verse: "He himself bore our sins in his body on the tree, that we might die to sin and live to righteousness. By his wounds you have been healed.", chapter: "1 Peter 2:24" },
+  { verse: "Casting all your anxieties on him, because he cares for you.", chapter: "1 Peter 5:7" },
+  { verse: "by which he has granted to us his precious and very great promises, so that through them you may become partakers of the divine nature, having escaped from the corruption that is in the world because of sinful desire.", chapter: "2 Peter 1:4" },
+  { verse: "The Lord is not slow to fulfill his promise as some count slowness, but is patient toward you, not wishing that any should perish, but that all should reach repentance.", chapter: "2 Peter 3:9" },
+  { verse: "If we confess our sins, he is faithful and just to forgive us our sins and to cleanse us from all unrighteousness.", chapter: "1 John 1:9" },
+  { verse: "See what kind of love the Father has given to us, that we should be called children of God; and so we are. The reason why the world does not know us is that it did not know him.", chapter: "1 John 3:1" },
+  { verse: "Little children, you are from God and have overcome them, for he who is in you is greater than he who is in the world.", chapter: "1 John 4:4" },
+  { verse: "And this is the confidence that we have toward him, that if we ask anything according to his will he hears us.", chapter: "1 John 5:14" },
+  { verse: "And this is love, that we walk according to his commandments; this is the commandment, just as you have heard from the beginning, so that you should walk in it.", chapter: "2 John 1:6" },
+  { verse: "Beloved, I pray that all may go well with you and that you may be in good health, as it goes well with your soul.", chapter: "3 John 1:2" },
+  { verse: "Now to him who is able to keep you from stumbling and to present you blameless before the presence of his glory with great joy,", chapter: "Jude 1:24" },
+  { verse: "Behold, I stand at the door and knock. If anyone hears my voice and opens the door, I will come in to him and eat with him, and he with me.", chapter: "Revelation 3:20" },
+  { verse: "He will wipe away every tear from their eyes, and death shall be no more, neither shall there be mourning, nor crying, nor pain anymore, for the former things have passed away.", chapter: "Revelation 21:4" },
+  { verse: "And he who was seated on the throne said, 'Behold, I am making all things new.' Also he said, 'Write this down, for these words are trustworthy and true.'", chapter: "Revelation 21:5" },
+  { verse: "The Spirit and the Bride say, 'Come.' And let the one who hears say, 'Come.' And let the one who is thirsty come; let the one who desires take the water of life without price.", chapter: "Revelation 22:17" },
+  { verse: "But I will establish my covenant with you, and you shall come into the ark, you, your sons, your wife, and your sons' wives with you.", chapter: "Genesis 6:18" },
+  { verse: "that I will surely bless you, and I will surely multiply your offspring as the stars of heaven and as the sand that is on the seashore. And your offspring shall possess the gate of his enemies,", chapter: "Genesis 22:17" },
+  { verse: "Sojourn in this land, and I will be with you and will bless you, for to you and to your offspring I will give all these lands, and I will establish the oath that I swore to Abraham your father.", chapter: "Genesis 26:3" },
+  { verse: "Then Jacob made a vow, saying, 'If God will be with me and will keep me in this way that I go, and will give me bread to eat and clothing to wear,", chapter: "Genesis 28:20" },
+  { verse: "And the LORD said to Jacob, 'Return to the land of your fathers and to your kindred, and I will be with you.'", chapter: "Genesis 31:3" },
+  { verse: "Then he said, 'I am God, the God of your father. Do not be afraid to go down to Egypt, for there I will make you into a great nation.'", chapter: "Genesis 46:3" },
+  { verse: "As for you, you meant evil against me, but God meant it for good, to bring it about that many people should be kept alive, as they are today.", chapter: "Genesis 50:20" },
+  { verse: "And I will take you to be my people, and I will be your God, and you shall know that I am the LORD your God, who has brought you out from under the burdens of the Egyptians.", chapter: "Exodus 6:7" },
+  { verse: "saying, 'If you will diligently listen to the voice of the LORD your God, and do that which is right in his eyes, and give ear to his commandments and keep all his statutes, I will put none of the diseases on you that I put on the Egyptians, for I am the LORD, your healer.'", chapter: "Exodus 15:26" },
+  { verse: "Now therefore, if you will indeed obey my voice and keep my covenant, you shall be my treasured possession among all peoples, for all the earth is mine;", chapter: "Exodus 19:5" },
+  { verse: "Behold, I send an angel before you to guard you on the way and to bring you to the place that I have prepared.", chapter: "Exodus 23:20" },
+  { verse: "The LORD passed before him and proclaimed, 'The LORD, the LORD, a God merciful and gracious, slow to anger, and abounding in steadfast love and faithfulness,", chapter: "Exodus 34:6" },
+  { verse: "And you shall keep my statutes and do them; I am the LORD who sanctifies you.", chapter: "Leviticus 20:8" },
+  { verse: "So you shall keep my commandments and do them: I am the LORD.", chapter: "Leviticus 22:31" },
+  { verse: "Yet for all that, when they are in the land of their enemies, I will not spurn them, neither will I abhor them so as to destroy them utterly and break my covenant with them, for I am the LORD their God.", chapter: "Leviticus 26:44" },
+  { verse: "The LORD is slow to anger and abounding in steadfast love, forgiving iniquity and transgression, but he will by no means clear the guilty, visiting the iniquity of the fathers on the children, to the third and the fourth generation.'", chapter: "Numbers 14:18" },
+  { verse: "For there is no enchantment against Jacob, no divination against Israel; now it shall be said of Jacob and Israel, 'What has God wrought!'", chapter: "Numbers 23:23" },
+  { verse: "But Balaam answered and said to Balak, 'Did I not tell you, All that the LORD says, that I must do ?", chapter: "Numbers 23:26" },
+  { verse: "It is the LORD your God who goes with you. He will not leave you or forsake you.", chapter: "Deuteronomy 1:30" },
+  { verse: "You shall walk in all the way that the LORD your God has commanded you, that you may live, and that it may go well with you, and that you may live long in the land that you shall possess.", chapter: "Deuteronomy 5:33" },
+  { verse: "And the LORD commanded us to do all these statutes, to fear the LORD our God, for our good always, that he might preserve us alive, as we are this day.", chapter: "Deuteronomy 6:24" },
+  { verse: "You shall remember the LORD your God, for it is he who gives you power to get wealth, that he may confirm his covenant that he swore to your fathers, as it is this day.", chapter: "Deuteronomy 8:18" },
+  { verse: "He is your praise. He is your God, who has done for you these great and terrifying things that your eyes have seen.", chapter: "Deuteronomy 10:21" },
+  { verse: "And if you will indeed obey my commandments that I command you today, to love the LORD your God, and to serve him with all your heart and with all your soul,", chapter: "Deuteronomy 11:13" },
+  { verse: "You shall walk after the LORD your God and fear him and keep his commandments and obey his voice, and you shall serve him and hold fast to him.", chapter: "Deuteronomy 13:4" },
+  { verse: "And the LORD has declared today that you are a people for his treasured possession, as he has promised you, and that you are to keep all his commandments,", chapter: "Deuteronomy 26:18" },
+  { verse: "by loving the LORD your God, by obeying his voice and holding fast to him, for he is your life and length of days, that you may dwell in the land that the LORD swore to your fathers, to Abraham, to Isaac, and to Jacob, to give them.", chapter: "Deuteronomy 30:20" },
+  { verse: "The eternal God is your dwelling place, and underneath are the everlasting arms. And he thrust out the enemy before you and said, 'Destroy.'", chapter: "Deuteronomy 33:27" },
+  { verse: "Not one word of all the good promises that the LORD had made to the house of Israel had failed; all came to pass.", chapter: "Joshua 21:45" },
+  { verse: "Only be very careful to observe the commandment and the law that Moses the servant of the LORD commanded you, to love the LORD your God, and to walk in all his ways and to keep his commandments and to hold fast to him and to serve him with all your heart and with all your soul.", chapter: "Joshua 22:5" },
+  { verse: "One man of you puts to flight a thousand, since it is the LORD your God who fights for you, just as he promised you.", chapter: "Joshua 23:10" },
+  { verse: "And the angel of the LORD appeared to him and said to him, 'The LORD is with you, O mighty man of valor.'", chapter: "Judges 6:12" },
+  { verse: "The LORD repay you for what you have done, and a full reward be given you by the LORD, the God of Israel, under whose wings you have come to take refuge!", chapter: "Ruth 2:12" },
+  { verse: "For the LORD will not forsake his people, for his great name's sake, because it has pleased the LORD to make you a people for himself.", chapter: "1 Samuel 12:22" },
+  { verse: "And also the Glory of Israel will not lie or have regret, for he is not a man, that he should have regret.", chapter: "1 Samuel 15:29" },
+  { verse: "that all this assembly may know that the LORD saves not with sword and spear. For the battle is the LORD's, and he will give you into our hand.", chapter: "1 Samuel 17:47" },
+  { verse: "And now, O Lord GOD, you are God, and your words are true, and you have promised this good thing to your servant.", chapter: "2 Samuel 7:28" },
+  { verse: "I give you also what you have not asked, both riches and honor, so that no other king shall compare with you, all your days.", chapter: "1 Kings 3:13" },
+  { verse: "The LORD our God be with us, as he was with our fathers. May he not leave us or forsake us,", chapter: "1 Kings 8:57" },
+  { verse: "I have heard your prayer, I have seen your tears. Behold, I will heal you. On the third day you shall go up to the house of the LORD.", chapter: "2 Kings 20:5" },
+  { verse: "Give thanks to the LORD, for he is good; his love endures forever.", chapter: "1 Chronicles 16:34" },
+  { verse: "Be strong and courageous, and do the work. Do not be afraid or dismayed, for the LORD God, my God, is with you. He will not leave you or forsake you, until all the work for the service of the house of the LORD is finished.", chapter: "1 Chronicles 28:20" },
+  { verse: "But you, take courage! Do not let your hands be weak, for your work shall be rewarded.", chapter: "2 Chronicles 15:7" },
+  { verse: "For the eyes of the LORD run to and fro throughout the whole earth, to give strong support to those whose heart is blameless toward him. You have done foolishly in this, for from now on you will have wars.", chapter: "2 Chronicles 16:9" },
+  { verse: "You will not need to fight in this battle. Stand firm, hold your position, and see the salvation of the LORD on your behalf, O Judah and Jerusalem. Do not be afraid and do not be dismayed. Tomorrow go out against them, and the LORD will be with you.", chapter: "2 Chronicles 20:17" },
+  { verse: "And I was ashamed to ask the king for a band of soldiers and horsemen to protect us against the enemy on our way, since we had told the king, 'The hand of our God is for good on all who seek him, but the power of his wrath is against all who forsake him.'", chapter: "Ezra 8:22" },
+  { verse: "Then he said to them, 'Go your way. Eat the fat and drink sweet wine and send portions to anyone who has nothing ready, for this day is holy to our Lord. And do not be grieved, for the joy of the LORD is your strength.'", chapter: "Nehemiah 8:10" },
+  { verse: "Nevertheless, in your great mercies you did not make an end of them or forsake them, for you are a gracious and merciful God.", chapter: "Nehemiah 9:31" },
+  { verse: "For if you keep silent at this time, relief and deliverance will rise for the Jews from another place, but you and your father's house will perish. And who knows whether you have not come to the kingdom for such a time as this?", chapter: "Esther 4:14" },
+  { verse: "And though your beginning was small, your latter days will be very great.", chapter: "Job 8:7" },
+  { verse: "And you will feel secure, because there is hope; you will look around and take your rest in security.", chapter: "Job 11:18" },
+  { verse: "If they listen and serve him, they complete their days in prosperity, and their years in pleasantness.", chapter: "Job 36:11" },
+  { verse: "He is like a tree planted by streams of water that yields its fruit in its season, and its leaf does not wither. In all that he does, he prospers.", chapter: "Psalm 1:3" },
+  { verse: "For you bless the righteous, O LORD; you cover him with favor as with a shield.", chapter: "Psalm 5:12" },
+  { verse: "And those who know your name put their trust in you, for you, O LORD, have not forsaken those who seek you.", chapter: "Psalm 9:10" },
+  { verse: "Moreover, by them is your servant warned; in keeping them there is great reward.", chapter: "Psalm 19:11" },
+  { verse: "I believe that I shall look upon the goodness of the LORD in the land of the living!", chapter: "Psalm 27:13" },
+  { verse: "For his anger is but for a moment, and his favor is for a lifetime. Weeping may tarry for the night, but joy comes with the morning.", chapter: "Psalm 30:5" },
+  { verse: "Be strong, and let your heart take courage, all you who hope in the LORD!", chapter: "Psalm 31:24" },
+  { verse: "I waited patiently for the LORD; he inclined to me and heard my cry.", chapter: "Psalm 40:1" },
+  { verse: "For God alone my soul waits in silence; from him comes my salvation.", chapter: "Psalm 62:1" },
+  { verse: "Blessed be the Lord, who daily bears us up; God is our salvation. Selah", chapter: "Psalm 68:19" },
+  { verse: "My flesh and my heart may fail, but God is the strength of my heart and my portion forever.", chapter: "Psalm 73:26" },
+  { verse: "Blessed are those whose strength is in you, in whose heart are the highways to Zion.", chapter: "Psalm 84:5" },
+  { verse: "I will not violate my covenant or alter the word that went forth from my lips.", chapter: "Psalm 89:34" },
+  { verse: "When the cares of my heart are many, your consolations cheer my soul.", chapter: "Psalm 94:19" },
+  { verse: "He is not afraid of bad news; his heart is firm, trusting in the LORD.", chapter: "Psalm 112:7" },
+  { verse: "This is my comfort in my affliction, that your promise gives me life.", chapter: "Psalm 119:50" },
+  { verse: "Your word is a lamp to my feet and a light to my path.", chapter: "Psalm 119:105" },
+  { verse: "Those who sow in tears shall reap with shouts of joy!", chapter: "Psalm 126:5" },
+  { verse: "I wait for the LORD, my soul waits, and in his word I hope;", chapter: "Psalm 130:5" },
+  { verse: "Though I walk in the midst of trouble, you preserve my life; you stretch out your hand against the wrath of my enemies, and your right hand delivers me.", chapter: "Psalm 138:7" },
+  { verse: "Blessed is he whose help is the God of Jacob, whose hope is in the LORD his God,", chapter: "Psalm 146:5" },
+  { verse: "but whoever listens to me will dwell secure and will be at ease, without dread of disaster.", chapter: "Proverbs 1:33" },
+  { verse: "For the LORD gives wisdom; from his mouth come knowledge and understanding;", chapter: "Proverbs 2:6" },
+  { verse: "If you lie down, you will not be afraid; when you lie down, your sleep will be sweet.", chapter: "Proverbs 3:24" },
+  { verse: "But the path of the righteous is like the light of dawn, which shines brighter and brighter until full day.", chapter: "Proverbs 4:18" },
+  { verse: "I love those who love me, and those who seek me diligently find me.", chapter: "Proverbs 8:17" },
+  { verse: "Whoever brings blessing will be enriched, and one who waters will himself be watered.", chapter: "Proverbs 11:25" },
+  { verse: "No ill befalls the righteous, but the wicked are filled with trouble.", chapter: "Proverbs 12:21" },
+  { verse: "In the fear of the LORD one has strong confidence, and his children will have a refuge.", chapter: "Proverbs 14:26" },
+  { verse: "The heart of man plans his way, but the LORD establishes his steps.", chapter: "Proverbs 16:9" },
+  { verse: "Many are the plans in the mind of a man, but it is the purpose of the LORD that will stand.", chapter: "Proverbs 19:21" },
+  { verse: "A man's steps are from the LORD; how then can man understand his way?", chapter: "Proverbs 20:24" },
+  { verse: "The reward for humility and fear of the LORD is riches and honor and life.", chapter: "Proverbs 22:4" },
+  { verse: "He has made everything beautiful in its time. Also, he has put eternity into man's heart, yet so that he cannot find out what God has done from the beginning to the end.", chapter: "Ecclesiastes 3:11" },
+  { verse: "Behold, God is my salvation; I will trust, and will not be afraid; for the LORD GOD is my strength and my song, and he has become my salvation.", chapter: "Isaiah 12:2" },
+  { verse: "He will swallow up death forever; and the Lord GOD will wipe away tears from all faces, and the reproach of his people he will take away from all the earth, for the LORD has spoken.", chapter: "Isaiah 25:8" },
+  { verse: "Therefore the LORD waits to be gracious to you, and therefore he exalts himself to show mercy to you. For the LORD is a God of justice; blessed are all those who wait for him.", chapter: "Isaiah 30:18" },
+  { verse: "And the effect of righteousness will be peace, and the result of righteousness, quietness and trust forever.", chapter: "Isaiah 32:17" },
+  { verse: "And the ransomed of the LORD shall return and come to Zion with singing; everlasting joy shall be upon their heads; they shall obtain gladness and joy, and sorrow and sighing shall flee away.", chapter: "Isaiah 35:10" },
+  { verse: "He will tend his flock like a shepherd; he will gather the lambs in his arms; he will carry them in his bosom, and gently lead those that are with young.", chapter: "Isaiah 40:11" },
+  { verse: "And I will lead the blind in a way that they do not know, in paths that they have not known I will guide them. I will turn the darkness before them into light, the rough places into level ground. These are the things I do, and I do not forsake them.", chapter: "Isaiah 42:16" },
+  { verse: "I have blotted out your transgressions like a cloud and your sins like mist; return to me, for I have redeemed you.", chapter: "Isaiah 44:22" },
+  { verse: "Even to your old age I am he, and to gray hairs I will carry you. I have made, and I will bear; I will carry and will save.", chapter: "Isaiah 46:4" },
+  { verse: "Can a woman forget her nursing child, that she should have no compassion on the son of her womb? Even these may forget, yet I will not forget you.", chapter: "Isaiah 49:15" },
+  { verse: "And the ransomed of the LORD shall return and come to Zion with singing; everlasting joy shall be upon their heads; they shall obtain gladness and joy, and sorrow and sighing shall flee away.", chapter: "Isaiah 51:11" },
+  { verse: "For thus says the One who is high and lifted up, who inhabits eternity, whose name is Holy: 'I dwell in the high and holy place, and also with him who is of a contrite and lowly spirit, to revive the spirit of the lowly, and to revive the heart of the contrite.'", chapter: "Isaiah 57:15" },
+  { verse: "The Spirit of the Lord GOD is upon me, because the LORD has anointed me to bring good news to the poor; he has sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to those who are bound;", chapter: "Isaiah 61:1" },
+  { verse: "Before they call I will answer; while they are yet speaking I will hear.", chapter: "Isaiah 65:24" },
+  { verse: "I will deliver you out of the hand of the wicked, and redeem you from the grasp of the ruthless.", chapter: "Jeremiah 15:21" },
+  { verse: "I will give them a heart to know that I am the LORD, and they shall be my people and I will be their God, for they shall return to me with their whole heart.", chapter: "Jeremiah 24:7" },
+  { verse: "the LORD appeared to him from far away. I have loved you with an everlasting love; therefore I have continued my faithfulness to you.", chapter: "Jeremiah 31:3" },
+  { verse: "Thus says the LORD: 'Keep your voice from weeping, and your eyes from tears, for there is a reward for your work, declares the LORD, and they shall come back from the land of the enemy.'", chapter: "Jeremiah 31:16" },
+  { verse: "Ah, Lord GOD! It is you who have made the heavens and the earth by your great power and by your outstretched arm! Nothing is too hard for you.", chapter: "Jeremiah 32:17" },
+  { verse: "I will make with them an everlasting covenant, that I will not turn away from doing good to them. And I will put the fear of me in their hearts, that they may not turn from me.", chapter: "Jeremiah 32:40" },
+  { verse: "Behold, I will bring to it health and healing, and I will heal them and reveal to them abundance of prosperity and security.", chapter: "Jeremiah 33:6" },
+  { verse: "And I will give them one heart, and a new spirit I will put within them. I will remove the heart of stone from their flesh and give them a heart of flesh,", chapter: "Ezekiel 11:19" },
+  { verse: "And I will make them and the places all around my hill a blessing, and I will send down the showers in their season; they shall be showers of blessing.", chapter: "Ezekiel 34:26" },
+  { verse: "And I will multiply the fruit of the tree and the increase of the field, that you may never again suffer the disgrace of famine among the nations.", chapter: "Ezekiel 36:11" },
+  { verse: "He reveals deep and hidden things; he knows what is in the darkness, and the light dwells with him.", chapter: "Daniel 2:22" },
+  { verse: "He delivers and rescues; he works signs and wonders in heaven and on earth, he who has saved Daniel from the power of the lions.", chapter: "Daniel 6:27" },
+  { verse: "Come, let us return to the LORD; for he has torn us, that he may heal us; he has struck us down, and he will bind us up.", chapter: "Hosea 6:1" },
+  { verse: "I will heal their apostasy; I will love them freely, for my anger has turned from them.", chapter: "Hosea 14:4" },
+  { verse: "And it shall come to pass that everyone who calls on the name of the LORD shall be saved. For in Mount Zion and in Jerusalem there shall be those who escape, as the LORD has said, and among the survivors shall be those whom the LORD calls.", chapter: "Joel 2:32" },
+  { verse: "For thus says the LORD to the house of Israel: 'Seek me and live;'", chapter: "Amos 5:4" },
+  { verse: "But in Mount Zion there shall be those who escape, and it shall be holy, and the house of Jacob shall possess their own possessions.", chapter: "Obadiah 1:17" },
+  { verse: "But as for me, I will look to the LORD; I will wait for the God of my salvation; my God will hear me.", chapter: "Micah 7:7" },
+  { verse: "Who is a God like you, pardoning iniquity and passing over transgression for the remnant of his inheritance? He does not retain his anger forever, because he delights in steadfast love.", chapter: "Micah 7:18" },
+  { verse: "Behold, upon the mountains, the feet of him who brings good news, who publishes peace! Keep your feasts, O Judah; fulfill your vows, for never again shall the worthless pass through you; he is utterly cut off.", chapter: "Nahum 1:15" },
+  { verse: "GOD, the Lord, is my strength; he makes my feet like the deer's; he makes me tread on my high places. To the choirmaster: with stringed instruments.", chapter: "Habakkuk 3:19" },
+  { verse: "At that time I will bring you in, at the time when I gather you together; for I will make you renowned and praised among all the peoples of the earth, when I restore your fortunes before your eyes, says the LORD.", chapter: "Zephaniah 3:20" },
+  { verse: "Is the seed yet in the barn? Indeed, the vine, the fig tree, the pomegranate, and the olive tree have yielded nothing. But from this day on I will bless you.", chapter: "Haggai 2:19" },
+  { verse: "And as you have been a byword of cursing among the nations, O house of Judah and house of Israel, so will I save you, and you shall be a blessing. Fear not, but let your hands be strong.", chapter: "Zechariah 8:13" },
+  { verse: "Return to your stronghold, O prisoners of hope; today I declare that I will restore to you double.", chapter: "Zechariah 9:12" },
+  { verse: "But for you who fear my name, the sun of righteousness shall rise with healing in its wings. You shall go out leaping like calves from the stall.", chapter: "Malachi 4:2" },
+  { verse: "Blessed are the pure in heart, for they shall see God.", chapter: "Matthew 5:8" },
+  { verse: "If you then, who are evil, know how to give good gifts to your children, how much more will your Father who is in heaven give good things to those who ask him!", chapter: "Matthew 7:11" },
+  { verse: "For where two or three are gathered in my name, there am I among them.", chapter: "Matthew 18:20" },
+  { verse: "But Jesus looked at them and said, 'With man this is impossible, but with God all things are possible.'", chapter: "Matthew 19:26" },
+  { verse: "And whatever you ask in prayer, you will receive, if you have faith.", chapter: "Matthew 21:22" },
+  { verse: "Heaven and earth will pass away, but my words will not pass away.", chapter: "Matthew 24:35" },
+  { verse: "And Jesus said to him, 'If you can! All things are possible for one who believes.'", chapter: "Mark 9:23" },
+  { verse: "Jesus looked at them and said, 'With man it is impossible, but not with God. For all things are possible with God.'", chapter: "Mark 10:27" },
+  { verse: "And I tell you, ask, and it will be given to you; seek, and you will find; knock, and it will be opened to you.", chapter: "Luke 11:9" },
+  { verse: "Fear not, little flock, for it is your Father's good pleasure to give you the kingdom.", chapter: "Luke 12:32" },
+  { verse: "But he said, 'What is impossible with men is possible with God.'", chapter: "Luke 18:27" },
+  { verse: "But to all who did receive him, who believed in his name, he gave the right to become children of God,", chapter: "John 1:12" },
+  { verse: "Whoever believes in the Son has eternal life; whoever does not obey the Son shall not see life, but the wrath of God remains on him.", chapter: "John 3:36" },
+  { verse: "Truly, truly, I say to you, whoever hears my word and believes him who sent me has eternal life. He does not come into judgment, but has passed from death to life.", chapter: "John 5:24" },
+  { verse: "Jesus said to them, 'I am the bread of life; whoever comes to me shall not hunger, and whoever believes in me shall never thirst.'", chapter: "John 6:35" },
+  { verse: "All that the Father gives me will come to me, and whoever comes to me I will never cast out.", chapter: "John 6:37" },
+  { verse: "Whoever believes in me, as the Scripture has said, 'Out of his heart will flow rivers of living water.'", chapter: "John 7:38" },
+  { verse: "So Jesus said to the Jews who had believed him, 'If you abide in my word, you are truly my disciples,", chapter: "John 8:31" },
+  { verse: "I am the door. If anyone enters by me, he will be saved and will go in and out and find pasture.", chapter: "John 10:9" },
+  { verse: "Jesus said to her, 'I am the resurrection and the life. Whoever believes in me, though he die, yet shall he live,", chapter: "John 11:25" },
+  { verse: "I have come into the world as light, so that whoever believes in me may not remain in darkness.", chapter: "John 12:46" },
+  { verse: "Jesus said to him, 'I am the way, and the truth, and the life. No one comes to the Father except through me.'", chapter: "John 14:6" },
+  { verse: "I am the vine; you are the branches. Whoever abides in me and I in him, he it is that bears much fruit, for apart from me you can do nothing.", chapter: "John 15:5" },
+  { verse: "These things I have spoken to you, that my joy may be in you, and that your joy may be full.", chapter: "John 15:11" },
+  { verse: "And this is eternal life, that they know you, the only true God, and Jesus Christ whom you have sent.", chapter: "John 17:3" },
+  { verse: "And it shall come to pass that everyone who calls upon the name of the Lord shall be saved.", chapter: "Acts 2:21" },
+  { verse: "and by him everyone who believes is freed from everything from which you could not be freed by the law of Moses.", chapter: "Acts 13:39" },
+  { verse: "Therefore, since we have been justified by faith, we have peace with God through our Lord Jesus Christ.", chapter: "Romans 5:1" },
+  { verse: "but God shows his love for us in that while we were still sinners, Christ died for us.", chapter: "Romans 5:8" },
+  { verse: "For the wages of sin is death, but the free gift of God is eternal life in Christ Jesus our Lord.", chapter: "Romans 6:23" },
+  { verse: "For 'everyone who calls on the name of the Lord will be saved.'", chapter: "Romans 10:13" },
+  { verse: "May the God of hope fill you with all joy and peace in believing, so that by the power of the Holy Spirit you may abound in hope.", chapter: "Romans 15:13" },
+  { verse: "God is faithful, by whom you were called into the fellowship of his Son, Jesus Christ our Lord.", chapter: "1 Corinthians 1:9" },
+  { verse: "But, as it is written, 'What no eye has seen, nor ear heard, nor the heart of man imagined, what God has prepared for those who love him'—", chapter: "1 Corinthians 2:9" },
+  { verse: "No temptation has overtaken you that is not common to man. God is faithful, and he will not let you be tempted beyond your ability, but with the temptation he will also provide the way of escape, that you may be able to endure it.", chapter: "1 Corinthians 10:13" },
+  { verse: "For this light momentary affliction is preparing for us an eternal weight of glory beyond all comparison,", chapter: "2 Corinthians 4:17" },
+  { verse: "Therefore, if anyone is in Christ, he is a new creation. The old has passed away; behold, the new has come.", chapter: "2 Corinthians 5:17" },
+  { verse: "And God is able to make all grace abound to you, so that having all sufficiency in all things at all times, you may abound in every good work.", chapter: "2 Corinthians 9:8" },
+  { verse: "I have been crucified with Christ. It is no longer I who live, but Christ who lives in me. And the life I now live in the flesh I live by faith in the Son of God, who loved me and gave himself for me.", chapter: "Galatians 2:20" },
+  { verse: "For freedom Christ has set us free; stand firm therefore, and do not submit again to a yoke of slavery.", chapter: "Galatians 5:1" },
+  { verse: "In him we have redemption through his blood, the forgiveness of our trespasses, according to the riches of his grace,", chapter: "Ephesians 1:7" },
+  { verse: "For by grace you have been saved through faith. And this is not your own doing; it is the gift of God,", chapter: "Ephesians 2:8" },
+  { verse: "that according to the riches of his glory he may grant you to be strengthened with power through his Spirit in your inner being,", chapter: "Ephesians 3:16" },
+  { verse: "Finally, be strong in the Lord and in the strength of his might.", chapter: "Ephesians 6:10" },
+  { verse: "But our citizenship is in heaven, and from it we await a Savior, the Lord Jesus Christ,", chapter: "Philippians 3:20" },
+  { verse: "He has delivered us from the domain of darkness and transferred us to the kingdom of his beloved Son,", chapter: "Colossians 1:13" },
+  { verse: "and you have been filled in him, who is the head of all rule and authority.", chapter: "Colossians 2:10" },
+  { verse: "For the Lord himself will descend from heaven with a cry of command, with the voice of an archangel, and with the sound of the trumpet of God. And the dead in Christ will rise first.", chapter: "1 Thessalonians 4:16" },
+  { verse: "Therefore encourage one another and build one another up, just as you are doing.", chapter: "1 Thessalonians 5:11" },
+  { verse: "Now may our Lord Jesus Christ himself, and God our Father, who loved us and gave us eternal comfort and good hope through grace,", chapter: "2 Thessalonians 2:16" },
+  { verse: "Fight the good fight of the faith. Take hold of the eternal life to which you were called and about which you made the good confession in the presence of many witnesses.", chapter: "1 Timothy 6:12" },
+  { verse: "if we are faithless, he remains faithful— for he cannot deny himself.", chapter: "2 Timothy 2:13" },
+  { verse: "For the grace of God has appeared, bringing salvation for all people,", chapter: "Titus 2:11" },
+  { verse: "We have this as a sure and steadfast anchor of the soul, a hope that enters into the inner place behind the curtain,", chapter: "Hebrews 6:19" },
+  { verse: "Consequently, he is able to save to the uttermost those who draw near to God through him, since he always lives to make intercession for them.", chapter: "Hebrews 7:25" },
+  { verse: "looking to Jesus, the founder and perfecter of our faith, who for the joy that was set before him endured the cross, despising the shame, and is seated at the right hand of the throne of God.", chapter: "Hebrews 12:2" },
+  { verse: "Every good gift and every perfect gift is from above, coming down from the Father of lights, with whom there is no variation or shadow due to change.", chapter: "James 1:17" },
+  { verse: "Behold, we consider those blessed who remained steadfast. You have heard of the steadfastness of Job, and you have seen the purpose of the Lord, how the Lord is compassionate and merciful.", chapter: "James 5:11" },
+  { verse: "Blessed be the God and Father of our Lord Jesus Christ! According to his great mercy, he has caused us to be born again to a living hope through the resurrection of Jesus Christ from the dead,", chapter: "1 Peter 1:3" },
+  { verse: "And after you have suffered a little while, the God of all grace, who has called you to his eternal glory in Christ, will himself restore, confirm, strengthen, and establish you.", chapter: "1 Peter 5:10" },
+  { verse: "Therefore, brothers, be all the more diligent to confirm your calling and election, for if you practice these qualities you will never fall.", chapter: "2 Peter 1:10" },
+  { verse: "And this is the promise that he made to us—eternal life.", chapter: "1 John 2:25" },
+  { verse: "And this is the testimony, that God gave us eternal life, and this life is in his Son.", chapter: "1 John 5:11" },
+  { verse: "keep yourselves in the love of God, waiting for the mercy of our Lord Jesus Christ that leads to eternal life.", chapter: "Jude 1:21" },
+  { verse: "Do not fear what you are about to suffer. Behold, the devil is about to throw some of you into prison, that you may be tested, and for ten days you will have tribulation. Be faithful unto death, and I will give you the crown of life.", chapter: "Revelation 2:10" },
+  { verse: "For the Lamb in the midst of the throne will be their shepherd, and he will guide them to springs of living water, and God will wipe away every tear from their eyes.", chapter: "Revelation 7:17" },
+  { verse: "And night will be no more. They will need no light of lamp or sun, for the Lord God will be their light, and they will reign forever and ever.", chapter: "Revelation 22:5" },
+  { verse: "The LORD is near to all who call on him, to all who call on him in truth.", chapter: "Psalm 145:18" },
+  { verse: "Then shall your light break forth like the dawn, and your healing shall spring up speedily; your righteousness shall go before you; the glory of the LORD shall be your rear guard.", chapter: "Isaiah 58:8" },
+  { verse: "They shall not labor in vain or bear children for calamity, for they shall be the offspring of the blessed of the LORD, and their descendants with them.", chapter: "Isaiah 65:23" },
+  { verse: "For I will restore health to you, and your wounds I will heal, declares the LORD, because they have called you an outcast: 'It is Zion, for whom no one cares!'", chapter: "Jeremiah 30:17" },
+  { verse: "And I will put my Spirit within you, and you shall live, and I will place you in your own land. Then you shall know that I am the LORD; I have spoken, and I will do it, declares the LORD.", chapter: "Ezekiel 37:14" },
+  { verse: "And I will betroth you to me forever. I will betroth you to me in righteousness and in justice, in steadfast love and in mercy.", chapter: "Hosea 2:19" },
+  { verse: "And I will be to her a wall of fire all around, declares the LORD, and I will be the glory in her midst.", chapter: "Zechariah 2:5" },
+  { verse: "But when you pray, go into your room and shut the door and pray to your Father who is in secret. And your Father who sees in secret will reward you.", chapter: "Matthew 6:6" },
+  { verse: "So if the Son sets you free, you will be free indeed.", chapter: "John 8:36" },
+  { verse: "There is therefore now no condemnation for those who are in Christ Jesus.", chapter: "Romans 8:1" },
+  { verse: "There is no fear in love, but perfect love casts out fear. For fear has to do with punishment, and whoever fears has not been perfected in love.", chapter: "1 John 4:18" }
+];
 
-    <div class="footer-col">
-      <h4>Subscribe for updates</h4>
 
-      <form id="form" class="contact-form">
-        <input type="email" name="sub" placeholder="Your Email">
-        <button type="submit">Subscribe</button>
-      </form>
+            // Ensure 366 entries
+            while (verseData.length < 366) {
+                const idx = verseData.length % 50;
+                verseData.push({
+                    verse: verseData[idx].verse + " (repeat)",
+                    chapter: verseData[idx].chapter + " (repeat)"
+                });
+            }
 
-      <div class="icons">
-        <i class="fa-brands fa-whatsapp" href="https://www.whatsapp.com/channel/0029Vb4vdzJLNSa5YQFh3X3E"></i>
-        <i class="fa-brands fa-twitter"></i>
-        <i class="fa-brands fa-facebook"></i>
-      </div>
-    </div>
+            // Shuffle with seed based on day of year
+            function shuffleArray(array, seed) {
+                let m = array.length,
+                    t, i;
+                while (m) {
+                    seed = (seed * 9301 + 49297) % 233280;
+                    i = Math.floor((seed / 233280) * m--);
+                    t = array[m];
+                    array[m] = array[i];
+                    array[i] = t;
+                }
+                return array;
+            }
 
-  </div>
+            const now = new Date();
+            const startOfYear = new Date(now.getFullYear(), 0, 0);
+            const diff = now - startOfYear;
+            const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const seed = dayOfYear + 1;
 
-  <div class="footer-bottom">
-    © 2026 Ark Of JESUS | All Rights Reserved
-  </div>
-</footer>
-<script src="server.js"></script>
+            const shuffledData = shuffleArray([...verseData], seed);
+            const verses366 = shuffledData.slice(0, 366).map((item, index) => ({
+                verse: item.verse,
+                chapter: item.chapter,
+                image: `https://picsum.photos/seed/ark${index+seed}/800/300`
+            }));
+
+            // DOM
+            const sliderImg = document.getElementById('sliderImg');
+            const verseText = document.getElementById('verseText');
+            const verseChapter = document.getElementById('verseChapter');
+            const verseDate = document.getElementById('verseDate');
+            const todayBtn = document.getElementById('todayVerseBtn');
+
+            function formatDate(d) {
+                const dd = String(d.getDate()).padStart(2, '0');
+                const mm = String(d.getMonth() + 1).padStart(2, '0');
+                const yyyy = d.getFullYear();
+                return `${dd} / ${mm} / ${yyyy}`;
+            }
+
+            function updateSlider(index) {
+                const data = verses366[index];
+                if (data) {
+                    sliderImg.src = data.image;
+                    verseText.textContent = `“${data.verse}”`;
+                    verseChapter.textContent = data.chapter;
+                    verseDate.textContent = formatDate(now);
+                }
+            }
+
+            todayBtn.addEventListener('click', function() {
+                updateSlider(dayOfYear % 366);
+            });
+
+            updateSlider(dayOfYear % 366);
+
+            // TAB switching - all nav items (desktop and mobile)
+            const allNavItems = document.querySelectorAll('.tab-btn');
+            const pages = {
+                home: document.getElementById('page-home'),
+                about: document.getElementById('page-about'),
+                timeline: document.getElementById('page-timeline'),
+                contact: document.getElementById('page-contact')
+            };
+
+            function switchPage(pageId) {
+                allNavItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.dataset.page === pageId) {
+                        item.classList.add('active');
+                    }
+                });
+
+                Object.values(pages).forEach(p => p.classList.remove('active-page'));
+                if (pages[pageId]) pages[pageId].classList.add('active-page');
+            }
+
+            allNavItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const pageId = this.dataset.page;
+                    if (pageId) switchPage(pageId);
+                });
+            });
+
+            switchPage('home');
+        })();
+    </script>
+
+    <link rel="icon" href="logo-pre.png" type="image/png" />
 </body>
 </html>
